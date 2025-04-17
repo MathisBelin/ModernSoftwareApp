@@ -15,10 +15,10 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore TestProject1/TestProject1.csproj
+        run: dotnet restore ModernSoftwareApp/ModernSoftwareApp.csproj
 
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet build ModernSoftwareApp/ModernSoftwareApp.csproj --no-restore
 
       - name: Run Tests
-        run: dotnet test --no-build --verbosity normal
+        run: dotnet test TestProject1/TestProject1.csproj --no-build --verbosity normal
