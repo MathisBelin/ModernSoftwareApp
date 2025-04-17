@@ -1,25 +1,27 @@
 name: Build and Test
- 
+
 on: [push, pull_request]
- 
+
 jobs:
   build:
     runs-on: ubuntu-latest
- 
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
- 
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '8.0.x'
- 
+
     - name: Restore dependencies
-      run: dotnet restore ModernSoftwareApp/ModernSoftwareApp.csproj
- 
+      run: |
+        dotnet restore ModernSoftwareApp/ModernSoftwareApp.csproj
+        dotnet restore TestProject1/TestProject1.csproj
+
     - name: Build
       run: dotnet build ModernSoftwareApp/ModernSoftwareApp.csproj --no-restore
- 
+
     - name: Run Tests
       run: dotnet test TestProject1/TestProject1.csproj --no-restore --verbosity normal
