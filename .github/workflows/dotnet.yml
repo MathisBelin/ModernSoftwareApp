@@ -16,7 +16,7 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Restaurer les dépendances
-      run: dotnet restore ./ModernSoftwareApp.sln
+      run: dotnet restore ./ModernSoftwareApp/ModernSoftwareApp.sln
 
     - name: Build
       run: dotnet build --no-restore
